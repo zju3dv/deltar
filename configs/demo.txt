@@ -1,0 +1,13 @@
+--data_path_eval data/demo
+--filenames_file_eval data/demo/data.json
+--input_height 480
+--input_width 640
+--max_depth 10
+--min_depth 1e-3
+--n_bins 256
+--min_depth_eval 1e-3
+--max_depth_eval 10
+--zone_sample_num 16
+--checkpoint_path checkpoints/nyu.pt
+--save_dir tmp
+--save_for_demo
