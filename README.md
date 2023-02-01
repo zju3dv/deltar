@@ -15,10 +15,40 @@
 
 ## Download Link
 
-We provide the [download link](https://drive.google.com/drive/folders/1ZGUdagrmFDr90Lm6qG1FkbZR_Tgpmr64?usp=share_link) to
+We provide the download link [[google drive](https://drive.google.com/drive/folders/1ZGUdagrmFDr90Lm6qG1FkbZR_Tgpmr64?usp=share_link), [baidu](https://pan.baidu.com/s/13qoVoZejiRzmoJGkFJdh0w?pwd=1i11)(code: 1i11)] to
   - pretrained model trained on NYU.
   - ZJUL5 dataset.
   - demo data.
+
+
+## Run DELTAR
+
+### Prepare the data and pretrained model
+Download from the above link, and place the data and model as below: 
+
+
+```
+deltar
+├── data
+│   ├── demo
+│   └── ZJUL5.html
+└── checkpoints
+    └── nyu.pt
+```
+
+### Evaluate on ZJUL5 dataset
+
+```bash
+python evaluate.py configs/test_zjuL5.txt
+```
+
+### Run the demo
+
+```bash
+python evaluate.py configs/test_demo.txt
+python scripts/make_gif.py --data_folder data/demo/room --pred_folder tmp/room
+```
+
 
 ## Citation
 
