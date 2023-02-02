@@ -9,7 +9,7 @@
 ![Demo Video](https://github.com/eugenelyj/open_access_assets/raw/master/deltar/comp_realsense_short.gif)
 
 ## TODO List
-- [ ] README
+- [x] README
 - [ ] Training script
 
 
@@ -31,7 +31,7 @@ Download from the above link, and place the data and model as below:
 deltar
 ├── data
 │   ├── demo
-│   └── ZJUL5.html
+│   └── ZJUL5
 └── checkpoints
     └── nyu.pt
 ```
