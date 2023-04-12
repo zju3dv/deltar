@@ -8,10 +8,6 @@
 
 ![Demo Video](https://github.com/eugenelyj/open_access_assets/raw/master/deltar/comp_realsense_short.gif)
 
-## TODO List
-- [x] README
-- [ ] Training script
-
 
 ## Download Link
 
