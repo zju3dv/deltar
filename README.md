@@ -32,7 +32,7 @@ deltar
 ├── data
 │   ├── demo
 │   └── ZJUL5
-└── checkpoints
+└── weights
     └── nyu.pt
 ```
 

@@ -1,0 +1,32 @@
+--bs 16
+--workers 11
+--dataset nyu
+--dataset_eval nyu
+--lr 0.0003
+--wd 0.1
+--div_factor 25
+--final_div_factor 100
+--epochs 25
+--name train_deltar
+--n_bins 256
+--norm linear
+--data_path data/nyudepthv2_sync/
+--filenames_file train_test_split/nyu_sync.json
+--data_path_eval data/nyudepthv2_sync/
+--filenames_file_eval train_test_split/nyu_sync.json
+--input_height 416
+--input_width 544
+--min_depth 0.001
+--max_depth 10
+--validate_every 1
+--min_depth_eval 1e-3
+--max_depth_eval 10
+--do_random_rotate
+--degree 2.5
+--sample_uniform
+--zone_sample_num 16
+--drop_hist 0.34
+--noise_mean 0.17
+--noise_sigma 0.20
+--noise_prob 0.30
+--train_zone_num 6

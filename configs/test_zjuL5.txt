@@ -8,4 +8,4 @@
 --min_depth_eval 1e-3
 --max_depth_eval 10
 --zone_sample_num 16
---checkpoint_path checkpoints/nyu.pt
+--weight_path weights/nyu.pt

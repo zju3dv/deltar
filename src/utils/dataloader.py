@@ -85,7 +85,10 @@ def get_hist_parallel(rgb, dep, config):
     height, width = rgb.shape[1], rgb.shape[2]
     max_distance = config.simu_max_distance
     range_margin = list(np.arange(0, max_distance+1e-9, 0.04))
-    patch_height, patch_width = 64, 64
+    if config.mode == 'train':
+        patch_height, patch_width = 64, 64
+    else:
+        patch_height, patch_width = 56, 56
     offset = 0
     if config.train_zone_random_offset > 0:
         offset = random.randint(-config.train_zone_random_offset, config.train_zone_random_offset)
@@ -101,14 +104,13 @@ def get_hist_parallel(rgb, dep, config):
     # first, mask out depth smaller than 4cm, which is usually invalid depth, i.e., zero
     hist[:,0] = 0
     hist = torch.clip(hist-20, 0, None)
-    if not config.keep_all_signal:
-        for i, bin_data in enumerate(hist):
-            idx = np.where(bin_data!=0)[0]
-            idx_split = np.split(idx,np.where(np.diff(idx)!=1)[0]+1)
-            bin_data_split = np.split(bin_data[idx],np.where(np.diff(idx)!=1)[0]+1)
-            signal = np.argmax([torch.sum(b) for b in bin_data_split])
-            hist[i, :] = 0
-            hist[i, idx_split[signal]] = bin_data_split[signal]
+    for i, bin_data in enumerate(hist):
+        idx = np.where(bin_data!=0)[0]
+        idx_split = np.split(idx,np.where(np.diff(idx)!=1)[0]+1)
+        bin_data_split = np.split(bin_data[idx],np.where(np.diff(idx)!=1)[0]+1)
+        signal = np.argmax([torch.sum(b) for b in bin_data_split])
+        hist[i, :] = 0
+        hist[i, idx_split[signal]] = bin_data_split[signal]
 
     dist = ((torch.Tensor(range_margin[1:]) + np.array(range_margin[:-1]))/2).unsqueeze(0)
     sy = torch.Tensor(list(range(sy, sy+patch_height*train_zone_num, patch_height)) * train_zone_num).view([train_zone_num, -1]).T.reshape([-1])

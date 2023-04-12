@@ -109,7 +109,7 @@ if __name__ == '__main__':
     test_loader = ZJUL5(args, 'online_eval').data
     model = Deltar(n_bins=args.n_bins, min_val=args.min_depth,
                     max_val=args.max_depth, norm='linear').to(device)
-    model = load_weights(model, args.checkpoint_path, '')
+    model = load_weights(model, args.weight_path)
     model = model.eval()
 
     eval(model, test_loader, args, device)

@@ -77,7 +77,6 @@ class DataLoadPreprocess(Dataset):
         ])
 
     def __getitem__(self, idx):
-        # import ipdb; ipdb.set_trace()
         focal = self.K_list[0].item()
 
         path_file = os.path.join(self.args.data_path,

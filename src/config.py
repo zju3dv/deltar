@@ -60,7 +60,7 @@ parser.add_argument('--save_rgb', action='store_true')
 parser.add_argument('--save_pred', action='store_true')
 parser.add_argument('--save_error_map', action='store_true')
 parser.add_argument('--save_dir', type=str, default='tmp')
-parser.add_argument('--checkpoint_path', help='')
+parser.add_argument('--weight_path', help='')
 parser.add_argument('--drop_hist', type=float, default=0.0)
 parser.add_argument('--noise_mean', type=float, default=0.0)
 parser.add_argument('--noise_sigma', type=float, default=0.0)
@@ -69,6 +69,8 @@ parser.add_argument('--train_zone_num', type=int, default=8)
 parser.add_argument('--train_zone_random_offset', type=int, default=0)
 parser.add_argument('--sample_uniform', action='store_true')
 parser.add_argument('--attention_layer', default=['hist2image','image','hist2image','image'], nargs='+')
+parser.add_argument('--validate-every', '--validate_every', default=100, type=int, help='validation period')
+parser.add_argument('--simu_max_distance', type=float, default=4.0)
 
 if sys.argv.__len__() == 2:
     arg_filename_with_prefix = '@' + sys.argv[1]
