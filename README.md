@@ -19,6 +19,11 @@ We provide the download link [[google drive](https://drive.google.com/drive/fold
 
 ## Run DELTAR
 
+### Installation
+```bash
+conda create --name deltar --file requirements.txt
+```
+
 ### Prepare the data and pretrained model
 Download from the above link, and place the data and model as below: 
 
